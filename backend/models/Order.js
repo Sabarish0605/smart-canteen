@@ -42,10 +42,10 @@ const orderSchema = new mongoose.Schema({
     default: 'pending'
   },
   qrCodeData: {
-    type: String,
-    unique: true,
-    sparse: true // Allows null until payment is confirmed
-  },
+  type: String,
+  default: "", 
+  unique: false // <--- MAKE SURE THIS IS FALSE OR REMOVED
+},
   status: {
     type: String,
     enum: ['pending_payment', 'active', 'scanned', 'delivered', 'cancelled'],
